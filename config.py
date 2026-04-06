@@ -1,7 +1,9 @@
 import os
 
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")   # токен от @BotFather
-CHAT_ID = -1001234567890                  # ID вашей группы (число отрицательное)
+TOKEN = "8648505015:AAGTOOibHUE7GPL_ocfVE_zLy7gEgfVle6g"   # или впишите токен напрямую (но не публикуйте)
+
+# ID группы (отрицательное число, начинается с -100)
+CHAT_ID = -1002833396254
 
 # Время утреннего напоминания (о вчерашних должниках)
 REMINDER_HOUR = 8
@@ -11,4 +13,8 @@ REMINDER_MINUTE = 0
 CHECK_HOUR = 22
 CHECK_MINUTE = 0
 
-DAILY_GOAL = 100
+DAILY_GOAL = 100   # норма отжиманий на человека в день
+
+# Настройки челленджа (отсчёт дней)
+CHALLENGE_START_DATE = "2026-04-01"   # дата старта в формате ГГГГ-ММ-ДД
+CHALLENGE_TOTAL_DAYS = 150            # общая длительность челленджа в днях
