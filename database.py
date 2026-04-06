@@ -47,6 +47,7 @@ def register_user(user_id, username, first_name):
         )
 
 def add_or_update_pushups(user_id, count, pushup_date=None):
+    """Добавляет count к существующему значению за указанную дату (по умолчанию сегодня)."""
     if pushup_date is None:
         pushup_date = date.today().isoformat()
     with get_db() as db:
@@ -60,6 +61,17 @@ def add_or_update_pushups(user_id, count, pushup_date=None):
             (user_id, pushup_date, new_count)
         )
     return new_count
+
+def set_pushups(user_id, count, pushup_date=None):
+    """Устанавливает точное количество отжиманий за указанную дату (по умолчанию сегодня)."""
+    if pushup_date is None:
+        pushup_date = date.today().isoformat()
+    with get_db() as db:
+        db.execute(
+            "INSERT OR REPLACE INTO pushups (user_id, date, count) VALUES (?, ?, ?)",
+            (user_id, pushup_date, count)
+        )
+    return count
 
 def get_user_today(user_id):
     today = date.today().isoformat()
